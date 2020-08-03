@@ -9,7 +9,11 @@ import java.util.Set;
  */
 public class SymmetricDifference<T> {
     public Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
-
-        return null;
+        Set<T> symmetricDif = new HashSet<T>(set1);
+        symmetricDif.addAll(set2);
+        Set<T> tmp = new HashSet<T>(set1);
+        tmp.retainAll(set2);
+        symmetricDif.removeAll(tmp);
+        return symmetricDif;
     }
 }
